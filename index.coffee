@@ -26,8 +26,8 @@ module.exports = (protractor, global) ->
     else
       parent = arguments[1]
       firstOnly = false
-    elements = $(parent or document).find("[what=\"" + what + "\"]")
-    return elements.first() if firstOnly
+    elements = (parent or document).querySelectorAll("[what=\"" + what + "\"]")
+    return [elements[0]] if firstOnly
     return elements
 
   # Add convenience method element.get("selector"), short for element(By.what("selector"))
